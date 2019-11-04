@@ -3,8 +3,9 @@
   <persistence-unit name="PETPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>model.Administrador</class>
-  
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <class>model.Aluno</class>
+    <class>model.Projeto</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bdpet"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

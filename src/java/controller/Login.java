@@ -20,30 +20,7 @@ public class Login {
 
     }
     
-    public Aluno alunoLogin(String email) {
-        EntityManager em = PersistenceUtil.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        Aluno aluno = null;
-
-        try {
-                tx.begin();
-            TypedQuery<Aluno> query = em.createQuery("select p From Aluno p WHERE p.email like :email", Aluno.class);
-            query.setParameter("email", email);
-            aluno = query.getSingleResult();
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null && tx.isActive()) {
-                tx.rollback();
-            }
-            throw new RuntimeException(e);
-        } finally {
-            PersistenceUtil.close(em);
-        }
-        return aluno;
-    }
-
-    
-     public Administrador administradorLogin(String email) {
+    public Administrador administradorLogin(String email) {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Administrador administrador = null;
@@ -63,6 +40,29 @@ public class Login {
             PersistenceUtil.close(em);
         }
         return administrador;
+    }
+
+    
+     public Aluno alunoLogin(String email) {
+        EntityManager em = PersistenceUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        Aluno aluno = null;
+
+        try {
+                tx.begin();
+            TypedQuery<Aluno> query = em.createQuery("select p From Aluno p WHERE p.email like :email", Aluno.class);
+            query.setParameter("email", email);
+            aluno = query.getSingleResult();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            throw new RuntimeException(e);
+        } finally {
+            PersistenceUtil.close(em);
+        }
+        return aluno;
     }
 
 

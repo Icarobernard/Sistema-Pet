@@ -3,76 +3,9 @@
 <html lang="en">
     <head>
         <title> Área adm</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-        <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-        <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/jquery-ui.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-
-        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
-        <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-        <link rel="stylesheet" href="css/aos.css">
-
-        <link rel="stylesheet" href="css/style.css">
-
     </head>
-    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-        <div class="site-wrap">
-
-            <div class="site-mobile-menu site-navbar-target">
-                <div class="site-mobile-menu-header">
-                    <div class="site-mobile-menu-close mt-3">
-                        <span class="icon-close2 js-menu-toggle"></span>
-                    </div>
-                </div>
-                <div class="site-mobile-menu-body"></div>
-            </div>
-
-
-
-
-            <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center">
-                        <div class="site-logo mr-auto w-25"><a href="index.html">Pet System</a></div>
-
-                        <div class="mx-auto text-center">
-                            <nav class="site-navigation position-relative text-right" role="navigation">
-                                <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                                    <li><a href="#home-section" class="nav-link">Projetos</a></li>
-                                    <li><a href="#courses-section" class="nav-link">Tarefas</a></li>
-                                    <li><a href="AlunoController?acao=Only" class="nav-link">Alunos</a></li>
-                                    <li><a href="AdministradorController?acao=Only" class="nav-link">Administradores</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-
-                        <div class="ml-auto w-25">
-                            <nav class="site-navigation position-relative text-right" role="navigation">
-                                <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                    <li class="cta"><a href="" class="nav-link" data-toggle="modal" data-target=".bd-example-modal-sm"><span>Login</span></a></li>
-                                </ul>
-                            </nav>
-                            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-
+     <%@include file ="header.jsp" %>
+    <body>
             <div class="intro-section" id="home-section">
 
                 <div class="slide-1" style="background-image: url('images/hero_1.jpg');" data-stellar-background-ratio="0.5">

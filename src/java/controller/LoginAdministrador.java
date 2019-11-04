@@ -34,7 +34,7 @@ public class LoginAdministrador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String login = request.getParameter("txtLogin");
+        String login = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
         
         Administrador administrador = Administrador.findByLogin(login);
