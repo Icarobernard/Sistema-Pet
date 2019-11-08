@@ -115,7 +115,7 @@
                                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                                     <c:if test="${sessionScope.tipo != null}">
                                         <li><a href="ProjetoController?acao=Only" class="nav-link">Projetos</a></li>
-                                        <li><a href="#courses-section" class="nav-link">Tarefas</a></li>
+                                        <li><a href="TarefaController?acao=Only" class="nav-link">Tarefas</a></li>
                                         <li><a href="AlunoController?acao=Only" class="nav-link">Alunos</a></li>
                                         <c:if test="${sessionScope.tipo == 'administrador'}">
                                            

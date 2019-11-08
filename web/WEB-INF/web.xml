@@ -16,6 +16,10 @@
         <servlet-name>ProjetoController</servlet-name>
         <servlet-class>controller.ProjetoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TarefaController</servlet-name>
+        <servlet-class>controller.TarefaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginAdministrador</servlet-name>
         <url-pattern>/LoginAdministrador</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ProjetoController</servlet-name>
         <url-pattern>/ProjetoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TarefaController</servlet-name>
+        <url-pattern>/TarefaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

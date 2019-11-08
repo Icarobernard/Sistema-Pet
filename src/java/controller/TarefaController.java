@@ -12,10 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Projeto;
 import model.Tarefa;
-@WebServlet (name="ProjetoController", urlPatterns = "/ProjetoController")
-public class  ProjetoController extends HttpServlet {
+
+@WebServlet (name="TarefaController", urlPatterns = "/TarefaController")
+public class  TarefaController extends HttpServlet {
 
  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, NoSuchMethodException, ClassNotFoundException {
@@ -28,13 +28,13 @@ public class  ProjetoController extends HttpServlet {
                     prepararOperacao(request, response);
 
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 if (acao.equals("Only")) {
-                    request.setAttribute("projetos", Projeto.findAll());
+                    request.setAttribute("tarefas", Tarefa.findAll());
                     
-                    RequestDispatcher view = request.getRequestDispatcher("pesquisaProjeto.jsp");
+                    RequestDispatcher view = request.getRequestDispatcher("pesquisaTarefa.jsp");
                     view.forward(request, response);
 
                 }
@@ -47,42 +47,50 @@ public class  ProjetoController extends HttpServlet {
         request.setAttribute("operacao", operacao);
        
         if (!operacao.equals("Incluir")) {
-            Projeto projeto = Projeto.find(Long.parseLong(request.getParameter("id")));
-            request.setAttribute("projeto", projeto);
+            Tarefa tarefa = Tarefa.find(Long.parseLong(request.getParameter("id")));
+            request.setAttribute("tarefa", tarefa);
 
         }
-        request.getRequestDispatcher("manterProjeto.jsp").forward(request, response);
+        request.getRequestDispatcher("manterTarefa.jsp").forward(request, response);
     }
 
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
         String operacao = request.getParameter("operacao");
          
-        String nome = request.getParameter("txtNomeProjeto");
-        String descricao = request.getParameter("txtDescricaoProjeto");
-        String status = request.getParameter("optStatusProjeto");
+        String nome = request.getParameter("txtNomeTarefa");
+        String descricao = request.getParameter("txtDescricaoTarefa");
+        String status = request.getParameter("optStatus");
+        String dataInicio = request.getParameter("txtDataInicio");
+        String dataFim = request.getParameter("txtDataFim");
+        String aluno = request.getParameter("optAluno");
+        String projeto = request.getParameter("optProjeto");
+        
         Long id = null;
-        int quantidadeTarefa = 0;
+        
+       
+        
         if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
        
         }
           
+          
         
         try {
-          Projeto projeto = new Projeto(id, nome, descricao, status, quantidadeTarefa);
+          Tarefa tarefa = new Tarefa(id, nome, descricao, status, dataInicio, dataFim, aluno, projeto);
          
           
             if (operacao.trim().equals("Incluir")) {
-                projeto.save();
+                tarefa.save();
                
             } else if (operacao.equals("Editar")) {
-                projeto.setId(id);
-                projeto.save();
+                tarefa.setId(id);
+                tarefa.save();
             } else if (operacao.equals("Excluir")) {
-                projeto.setId(id);
-                projeto.remove();
+                tarefa.setId(id);
+                tarefa.remove();
             }
-            RequestDispatcher view = request.getRequestDispatcher("ProjetoController?acao=Only");
+            RequestDispatcher view = request.getRequestDispatcher("TarefaController?acao=Only");
             view.forward(request, response);
         } catch (IOException e) {
             throw new ServletException(e);
@@ -98,11 +106,11 @@ public class  ProjetoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchMethodException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -112,11 +120,11 @@ public class  ProjetoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchMethodException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProjetoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TarefaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

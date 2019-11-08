@@ -18,9 +18,7 @@
 
                                         <div data-aos="fade-up" data-aos-delay="100">
                                             <div class="search-list">
-                                                <table class="table table-list-search table"    data-flat="true"
-                             data-search="true"
-                             data-pagination="true">
+                                                <table class="table table-list-search table">
                                                     <thead>
                                                         <tr>
                                                             <th>Id</th>
@@ -68,7 +66,20 @@
 
                                                     </tbody>
                                                     <hr style="height:2px; border:none; color:white; background-color: white; margin-top: 0px; margin-bottom: 0px;"/>
-                                                </table>  
+                                                </table> 
+                     <script>
+                        var $table = $('#table')
+
+                        $(function () {
+                            $table.bootstrapTable()
+
+                            $('#locale').change(function () {
+                                $table.bootstrapTable('refreshOptions', {
+                                    locale: $(this).val()
+                                })
+                            })
+                        })
+                    </script>
                                             </div>
                                             <a href="AlunoController?acao=prepararOperacao&operacao=Incluir"><button class="btn btn-outline-info" type="submit" name="btnIncluir" >Add <i class="fas fa-user-plus"></i></button></a>
                                         </div>

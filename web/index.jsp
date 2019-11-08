@@ -56,114 +56,12 @@
         </div>
 
 
-        <div class="site-section courses-title" id="courses-section">
-            <div class="container">
-                <div class="row mb-5 justify-content-center">
-                    
-                    <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-                        <h2 class="section-title">Projetos</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100">
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="owl-carousel col-12 nonloop-block-14">
-                    <c:forEach items="${projetos}" var="projeto">
-                        <tbody>
-                        <div class="course bg-white h-100 align-self-stretch">
-
-                            <div class="course-inner-text py-4 px-4">
-                                <span style="background: green"class="course-price"><c:out value="${projeto.status}" /></span>
-                                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                                <h3><a href="#"><c:out value="${projeto.nome}" /></a></h3>
-                                <p><c:out value="${projeto.descricao}" /> </p>
-                            </div>
-                            <div class="d-flex border-top stats">
-                                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-                            </div>
-                        </div>
-                        </tbody>
-                    </c:forEach>
-
-
-           
-
-
-                    <div class="course bg-white h-100 align-self-stretch">
-                        <figure class="m-0">
-                            <a href="course-single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-                        </figure>
-                        <div class="course-inner-text py-4 px-4">
-                            <span class="course-price">$20</span>
-                            <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                            <h3><a href="#">Study Law of Physics</a></h3>
-                            <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-                        </div>
-                        <div class="d-flex border-top stats">
-                            <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                            <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-                        </div>
-                    </div>
-
-                    <div class="course bg-white h-100 align-self-stretch">
-                        <figure class="m-0">
-                            <a href="course-single.html"><img src="images/img_5.jpg" alt="Image" class="img-fluid"></a>
-                        </figure>
-                        <div class="course-inner-text py-4 px-4">
-                            <span class="course-price">$99</span>
-                            <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                            <h3><a href="#">Logo Design Course</a></h3>
-                            <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-                        </div>
-                        <div class="d-flex border-top stats">
-                            <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                            <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-                        </div>
-                    </div>
-
-                    <div class="course bg-white h-100 align-self-stretch">
-                        <figure class="m-0">
-                            <a href="course-single.html"><img src="images/img_6.jpg" alt="Image" class="img-fluid"></a>
-                        </figure>
-                        <div class="course-inner-text py-4 px-4">
-                            <span class="course-price">$99</span>
-                            <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                            <h3><a href="#">JS Programming Language</a></h3>
-                            <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-                        </div>
-                        <div class="d-flex border-top stats">
-                            <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                            <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-7 text-center">
-                    <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-                    <button class="customNextBtn btn btn-primary m-1">Next</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
 
     <div class="site-section" id="programs-section">
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-lg-7 text-center"  data-aos="fade-up" data-aos-delay="">
-                    <h2 class="section-title">Our Programs</h2>
+                    <h2 class="section-title">Nossa proposta</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!</p>
                 </div>
             </div>
@@ -361,9 +259,11 @@
                         <div class="form-group row">
                             <div class="col-md-6 mb-3 mb-lg-0">
                                 <input type="text" class="form-control" placeholder="First name">
+                                <span>nome</span>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" placeholder="Last name">
+                                <span>nome</span>
                             </div>
                         </div>
 
@@ -446,7 +346,13 @@
 
 
 
-</div> <!-- .site-wrap -->
+        
+        
+        
+        
+        
+       
+ <!-- .site-wrap -->
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js"></script>

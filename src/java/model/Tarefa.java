@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Tarefa implements Serializable{
     
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
@@ -26,16 +26,14 @@ public class Tarefa implements Serializable{
     private String status;
     private String dataInicio;
     private String dataFim;
-    
-    @ManyToOne
-    private Aluno aluno;
-    @ManyToOne
-    private Projeto projeto;
+    private String aluno;
+    private String projeto;
+
 
     public Tarefa() {
     }
 
-    public Tarefa(Long id, String nome, String descricao, String status, String dataInicio, String dataFim, Aluno aluno, Projeto projeto) {
+    public Tarefa(Long id, String nome, String descricao, String status, String dataInicio, String dataFim, String aluno, String projeto) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -94,22 +92,15 @@ public class Tarefa implements Serializable{
         this.dataFim = dataFim;
     }
 
-    public Aluno getAluno() {
+    public String getAluno() {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
-
-    public Projeto getProjeto() {
+    public String getProjeto() {
         return projeto;
     }
 
-    public void setProjeto(Projeto projeto) {
-        this.projeto = projeto;
-    }
-    
+
      public void save() throws NoSuchMethodException {
        DAO.getInstance().save(this);
     }

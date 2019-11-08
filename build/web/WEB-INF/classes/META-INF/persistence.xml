@@ -5,6 +5,7 @@
     <class>model.Administrador</class>
     <class>model.Aluno</class>
     <class>model.Projeto</class>
+    <class>model.Tarefa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bdpet"/>
