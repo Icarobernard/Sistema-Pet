@@ -58,8 +58,8 @@
                                                       <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
                                                </div>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" style="height: 50px" placeholder="Descrição" name="txtDescricaoProjeto" required value="${projeto.descricao}"
-                                                         <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                                                   <textarea type="text" class="form-control"  placeholder="Descrição: ${projeto.descricao}" name="txtDescricaoProjeto" required value="${projeto.descricao}"
+                                                                <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></textarea>
                                                </div>
                                                <div class="form-group mb-4">
                                                    <select name="optStatusProjeto" class="form-control"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>

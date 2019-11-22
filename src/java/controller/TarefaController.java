@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Aluno;
+import model.Projeto;
 import model.Tarefa;
 
 @WebServlet (name="TarefaController", urlPatterns = "/TarefaController")
@@ -33,6 +35,8 @@ public class  TarefaController extends HttpServlet {
             } else {
                 if (acao.equals("Only")) {
                     request.setAttribute("tarefas", Tarefa.findAll());
+                    request.setAttribute("alunos", Aluno.findAll());
+                    request.setAttribute("projetos", Projeto.findAll());
                     
                     RequestDispatcher view = request.getRequestDispatcher("pesquisaTarefa.jsp");
                     view.forward(request, response);

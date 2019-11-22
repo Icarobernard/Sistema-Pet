@@ -81,7 +81,11 @@
                         })
                     </script>
                                             </div>
-                                            <a href="AlunoController?acao=prepararOperacao&operacao=Incluir"><button class="btn btn-outline-info" type="submit" name="btnIncluir" >Add <i class="fas fa-user-plus"></i></button></a>
+                                            <c:if test="${sessionScope.tipo == 'administrador'}">
+                                             <a href="AlunoController?acao=prepararOperacao&operacao=Incluir">
+                                                 <button class="btn btn-primary btn-pill" type="submit" name="btnIncluir" >add
+                                                     <i class="fas fa-user-plus"></i></button></a>
+                                                     </c:if>
                                         </div>
                                     </div>
                                 </div>
@@ -90,13 +94,6 @@
                         </div>
                     </div>
                     
-
-
-
-
-
-
-
 
 
             <footer class="footer-section bg-white">

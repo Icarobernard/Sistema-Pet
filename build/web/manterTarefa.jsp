@@ -66,11 +66,13 @@
 
 
                                     <div class="col-md-6 mb-3 mb-lg-0">
-                                        <select class="form-control" required name="optAluno" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
-                                        <option required value="0" <c:if test="${tarefa.aluno == null}"> selected</c:if>> </option>  
+                                        <select class="form-control"  name="optAluno" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>>
+                                         
                                         <c:forEach items="${alunos}" var="aluno">
-                                            <option required value="${tarefa.aluno}" <c:if test="${tarefa.aluno.id == aluno.id}"> selected</c:if>>${aluno.nome}</option>  
+                                            <option required >${aluno.nome} </option>  
                                         </c:forEach>
+                                            
+                                                       
                                     </select>
                                     <small  class="form-text text-muted">Aluno</small>
                                 </div>
@@ -137,7 +139,9 @@
 
 
 
-
+      <c:forEach items="${projetos}" var="projeto">
+          <p>${projeto.nome} </p>
+      </c:forEach>
 
 
         <footer class="footer-section bg-white">

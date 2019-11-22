@@ -17,9 +17,9 @@
         <br><br><br><br><br><br><br><br>
                                         <div data-aos="fade-up" data-aos-delay="100">
                                     
-       <button id="button" class="btn btn-secondary">removeAll</button>
-       <script>    $('#table').bootstrapTable('destroy'); //Destroy bootstrap table
-    $('#table').bootstrapTable(); //Rebuild bootstrap table</script>
+<div id="toolbar">
+  <button id="button" class="btn btn-secondary">remove</button>
+</div>
          <a href="TarefaController?acao=prepararOperacao&operacao=Incluir"><button class="customPrevBtn btn btn-primary m-1" type="submit" name="btnIncluir" >Add <i class="fas fa-user-plus"></i></button></a>
              <table   id="table"
                              data-toggle="table"
@@ -67,13 +67,19 @@
                     </c:forEach>
                       
                         </table>
-                                            <script>
+<script>
   var $table = $('#table')
   var $button = $('#button')
 
   $(function() {
     $button.click(function () {
-      $table.bootstrapTable('removeAll')
+      var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+        return row.id
+      })
+      $table.bootstrapTable('remove', {
+        field: 'id',
+        values: ids
+      })
     })
   })
 </script>
