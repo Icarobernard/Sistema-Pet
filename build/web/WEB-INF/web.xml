@@ -20,6 +20,14 @@
         <servlet-name>TarefaController</servlet-name>
         <servlet-class>controller.TarefaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisaTarefaController</servlet-name>
+        <servlet-class>controller.PesquisaTarefaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterTarefaController</servlet-name>
+        <servlet-class>controller.ManterTarefaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginAdministrador</servlet-name>
         <url-pattern>/LoginAdministrador</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>TarefaController</servlet-name>
         <url-pattern>/TarefaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaTarefaController</servlet-name>
+        <url-pattern>/PesquisaTarefaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterTarefaController</servlet-name>
+        <url-pattern>/ManterTarefaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

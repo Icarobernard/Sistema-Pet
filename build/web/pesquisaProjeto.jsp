@@ -74,15 +74,7 @@
 
 
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                        <!-- <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-                         <button class="customNextBtn btn btn-primary m-1">Next</button>
-                        -->
-                        <a href="ProjetoController?acao=prepararOperacao&operacao=Incluir"><button class="customPrevBtn btn btn-primary m-1" type="submit" name="btnIncluir" >Add <i class="fas fa-user-plus"></i></button></a>
 
-                    </div>
-                </div>
             </div>
 
             <div class="row mb-5 align-items-center">
@@ -90,17 +82,25 @@
                     <img src="images/undraw_youtube_tutorial.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-white mb-4">Projetos</h2>
+                    <h2 class="text-white mb-4">Projetos  <a href="ProjetoController?acao=prepararOperacao&operacao=Incluir"><button class="customPrevBtn btn btn-primary m-1" type="submit" name="btnIncluir" >Add <i class="fas fa-user-plus"></i></button></a></h2> 
+               
+                            <!-- <button class="customPrevBtn btn btn-primary m-1">Prev</button>
+                             <button class="customNextBtn btn btn-primary m-1">Next</button>
+                            -->
+                           
+
+                    
                     <p class="mb-4">Listagem dos projetos</p>
+
                     <c:forEach items="${projetos}" var="projeto">
                         <a href="ProjetoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${projeto.id}" />">
-                        <div class="d-flex align-items-center custom-icon-wrap mb-2">
-                            <span class="custom-icon-inner mr-3"><span class="icon icon-check"></span></span>
+                            <div class="d-flex align-items-center custom-icon-wrap mb-2">
+                                <span class="custom-icon-inner mr-3"><span class="icon icon-check"></span></span>
 
-                            <div><h3 class="m-0">${projeto.nome}</h3></div>
+                                <div><h3 class="m-0">${projeto.nome}</h3></div>
 
-                        </div>
-                            </a>
+                            </div>
+                        </a>
                     </c:forEach>
 
 
@@ -122,52 +122,7 @@
 
 
 
-
-    <footer class="footer-section bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>About OneSchool</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro consectetur ut hic ipsum et veritatis corrupti. Itaque eius soluta optio dolorum temporibus in, atque, quos fugit sunt sit quaerat dicta.</p>
-                </div>
-
-                <div class="col-md-3 ml-auto">
-                    <h3>Links</h3>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Programs</a></li>
-                        <li><a href="#">Teachers</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4">
-                    <h3>Subscribe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt incidunt iure iusto architecto? Numquam, natus?</p>
-                    <form action="#" class="footer-subscribe">
-                        <div class="d-flex mb-5">
-                            <input type="text" class="form-control rounded-0" placeholder="Email">
-                            <input type="submit" class="btn btn-primary rounded-0" value="Subscribe">
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="row pt-5 mt-5 text-center">
-                <div class="col-md-12">
-                    <div class="border-top pt-5">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </footer>
+<%@ include file = "footer.jsp" %>
 
 
 

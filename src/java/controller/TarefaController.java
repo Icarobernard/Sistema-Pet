@@ -16,10 +16,10 @@ import model.Aluno;
 import model.Projeto;
 import model.Tarefa;
 
-@WebServlet (name="TarefaController", urlPatterns = "/TarefaController")
-public class  TarefaController extends HttpServlet {
+@WebServlet(name = "TarefaController", urlPatterns = "/TarefaController")
+public class TarefaController extends HttpServlet {
 
- protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, NoSuchMethodException, ClassNotFoundException {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmaOperacao")) {
@@ -37,8 +37,27 @@ public class  TarefaController extends HttpServlet {
                     request.setAttribute("tarefas", Tarefa.findAll());
                     request.setAttribute("alunos", Aluno.findAll());
                     request.setAttribute("projetos", Projeto.findAll());
-                    
+
                     RequestDispatcher view = request.getRequestDispatcher("pesquisaTarefa.jsp");
+                    view.forward(request, response);
+
+                }
+                
+                    if (acao.equals("Completo")) {
+                    request.setAttribute("tarefas", Tarefa.findAll());
+                    request.setAttribute("alunos", Aluno.findAll());
+                    request.setAttribute("projetos", Projeto.findAll());
+
+                    RequestDispatcher view = request.getRequestDispatcher("pesquisaTarefaCompleta.jsp");
+                    view.forward(request, response);
+
+                }
+                    if (acao.equals("Solicitado")) {
+                    request.setAttribute("tarefas", Tarefa.findAll());
+                    request.setAttribute("alunos", Aluno.findAll());
+                    request.setAttribute("projetos", Projeto.findAll());
+
+                    RequestDispatcher view = request.getRequestDispatcher("pesquisaTarefaSolicitada.jsp");
                     view.forward(request, response);
 
                 }
@@ -49,18 +68,45 @@ public class  TarefaController extends HttpServlet {
     protected void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
-       
+        request.setAttribute("tarefas", Tarefa.findAll());
+        request.setAttribute("alunos", Aluno.findAll());
+        request.setAttribute("projetos", Projeto.findAll());
         if (!operacao.equals("Incluir")) {
-            Tarefa tarefa = Tarefa.find(Long.parseLong(request.getParameter("id")));
+  //          Tarefa tarefa = Tarefa.find(Long.parseLong(request.getParameter("id")));
+             long id = Long.parseLong(request.getParameter("id"));
+                Tarefa tarefa = Tarefa.find(id);
             request.setAttribute("tarefa", tarefa);
 
         }
         request.getRequestDispatcher("manterTarefa.jsp").forward(request, response);
     }
 
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException {
+    /*  protected void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
+        try {
+            String operacao = request.getParameter("operacao");
+            request.setAttribute("operacao", operacao);
+            request.setAttribute("tarefas", Tarefa.findAll());
+            request.setAttribute("alunos", Aluno.findAll());
+            request.setAttribute("projetos", Projeto.findAll());
+        
+            if (!operacao.equals("Incluir")) {
+            Tarefa tarefa = Tarefa.find(Long.parseLong(request.getParameter("id")));
+            request.setAttribute("tarefa", tarefa);
+
+        }
+            RequestDispatcher view = request.getRequestDispatcher("/manterTarefa.jsp");
+            view.forward(request, response);
+        } catch (ServletException e) {
+            throw e;
+        } catch (IOException e) {
+            throw new ServletException(e);
+        }
+    }
+     */
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, NoSuchMethodException, ClassNotFoundException {
         String operacao = request.getParameter("operacao");
-         
+
         String nome = request.getParameter("txtNomeTarefa");
         String descricao = request.getParameter("txtDescricaoTarefa");
         String status = request.getParameter("optStatus");
@@ -69,28 +115,43 @@ public class  TarefaController extends HttpServlet {
         String aluno = request.getParameter("optAluno");
         String projeto = request.getParameter("optProjeto");
         
-        Long id = null;
-        
        
-        
+        Long id = null;
+
         if (!operacao.equals("Incluir")) {
             id = Long.parseLong(request.getParameter("id"));
-       
+
         }
-          
-          
-        
+
         try {
-          Tarefa tarefa = new Tarefa(id, nome, descricao, status, dataInicio, dataFim, aluno, projeto);
-         
-          
+            Tarefa tarefa = new Tarefa(id, nome, descricao, status, dataInicio, dataFim, aluno, projeto);
+            //tarefa.getProjeto();
+            
+            
             if (operacao.trim().equals("Incluir")) {
                 tarefa.save();
-               
+
             } else if (operacao.equals("Editar")) {
+                id = Long.parseLong(request.getParameter("id"));
                 tarefa.setId(id);
                 tarefa.save();
-            } else if (operacao.equals("Excluir")) {
+                
+            } else if (operacao.equals("EditarSolicitado")) {
+                id = Long.parseLong(request.getParameter("id"));
+                tarefa.setId(id);
+                tarefa.save();
+                RequestDispatcher view = request.getRequestDispatcher("TarefaController?acao=Solicitado");
+                view.forward(request, response);
+            }
+            else if (operacao.equals("EditarCompleto")) {
+                id = Long.parseLong(request.getParameter("id"));
+                tarefa.setId(id);
+                tarefa.save();
+                RequestDispatcher view = request.getRequestDispatcher("TarefaController?acao=Completo");
+                view.forward(request, response);
+            }
+            
+            else if (operacao.equals("Excluir")) {
                 tarefa.setId(id);
                 tarefa.remove();
             }
@@ -138,3 +199,5 @@ public class  TarefaController extends HttpServlet {
     }// </editor-fold>
 
 }
+
+

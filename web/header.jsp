@@ -43,8 +43,8 @@
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <a class="btn btn-primary" data-toggle="modal" data-target=".aluno">Logar como aluno</a>
-                    <a class="btn btn-success" data-toggle="modal" data-target=".administrador">Logar como administrador</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target=".aluno" style="color: white">Logar como aluno</a>
+                    <a class="btn btn-success" data-toggle="modal" data-target=".administrador" style="color: white">Logar como administrador</a>
                 </div>
             </div>
         </div>
@@ -114,12 +114,30 @@
                             <nav class="site-navigation position-relative text-right" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                                     <c:if test="${sessionScope.tipo != null}">
+                                       <!-- <li><a href="TarefaController?acao=Only" class="nav-link">Tarefas</a></li>-->
+                                        <li><div class="dropdown">
+                                            <a  class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Tarefas
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="TarefaController?acao=Only">Todas tarefas</a>
+                                                <a class="dropdown-item" href="TarefaController?acao=Completo">Tarefas completas</a>
+                                                <a class="dropdown-item" href="TarefaController?acao=Solicitado">Solicitações</a>
+                                            </div>
+                                        </div>
+                                        </li>
                                         <li><a href="ProjetoController?acao=Only" class="nav-link">Projetos</a></li>
-                                        <li><a href="TarefaController?acao=Only" class="nav-link">Tarefas</a></li>
-                                        <li><a href="AlunoController?acao=Only" class="nav-link">Alunos</a></li>
-                                        <c:if test="${sessionScope.tipo == 'administrador'}">
-                                           
+                                            <c:if test="${sessionScope.tipo == 'administrador'}">
+                                            <li><a href="AlunoController?acao=Only" class="nav-link">Alunos</a></li>
+
+
                                             <li><a href="AdministradorController?acao=Only" class="nav-link">Administradores</a></li>
+                                            </c:if>
+
+                                        <c:if test="${sessionScope.tipo == 'aluno'}">
+
+                                            <li><a href="AlunoController?acao=prepararOperacao&operacao=Editar&id=${sessionScope.id}" class="nav-link">Editar perfil</a></li>
                                             </c:if>
 
                                     </c:if>
@@ -137,8 +155,8 @@
                                 </c:if>
                                 <c:if test="${sessionScope.tipo != null}">
                                     <a href="LogoutController" class="btn btn-secondary btn-pill" >Logout</a>
-                                   
-                                    
+
+
                                 </c:if>
                             </nav>
                             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
@@ -147,5 +165,9 @@
                 </div>
 
             </header>
+            
+            
+            
     </body>
+    
 </html>
